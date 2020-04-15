@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block contet %}
+    <div id="wrapper">
+        <div class="top-bar">
+            <span class="first">
+                <span class="highlight-bar"></span>
+                <a href="/" class="selected">首页</a>
+            </span>
+            <span class="tip_fav">
+                <a href="" target="_blank">提交链接</a>
+            </span>
+        </div>
+
+        <div id="first-content">
+            <div id="center-box-wrapper">
+                <form action="{% url 'app:commit' %}" enctype="multipart/form-data" method="post" role="form"
+                      style="width: 50%;max-width: 480px; min-width: 320px; margin: auto;">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <h3>请提交合法的磁力链接</h3>
+                        <input type="text" style="margin: 20px 0px;" required name="url" class="form-control"
+                               placeholder="磁力链接,例如:magent:?xt=urn:btih:cbe569604ea7759b4167">
+                        <input type="text" style="margin: 20px 0px;" required name="title" class="form-control"
+                               placeholder="影片名称，例如：泰坦尼克号">
+                        <input type="text" style="margin: 20px 0px;" required name="size" class="form-control"
+                               placeholder="影片大小,例如:1.GB">
+                        <input type="text" style="margin: 20px 0px;" name="contact" class="form-control"
+                               placeholder="联系方式，例如：net123@163.com">
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
